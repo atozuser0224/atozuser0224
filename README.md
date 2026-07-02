@@ -1,4 +1,4 @@
-<div align="center">
+﻿<div align="center">
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,20&height=200&section=header&text=Arc&fontSize=80&fontAlignY=35&animation=fadeIn&desc=Building%20Games%20%26%20Tools%20with%20Code&descAlignY=55&descSize=20" />
 
@@ -82,12 +82,18 @@ data class Developer(
   <a href="https://github.com/atozuser0224/InvMaker">
     <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=InvMaker&theme=tokyonight&hide_border=true&description_lines_count=2" />
   </a>
+  <a href="https://github.com/atozuser0224/Arc">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=Arc&theme=tokyonight&hide_border=true&description_lines_count=2" />
+  </a>
   <a href="https://github.com/atozuser0224/ServerMinecraft">
     <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=ServerMinecraft&theme=tokyonight&hide_border=true&description_lines_count=2" />
   </a>
+  <a href="https://github.com/atozuser0224/ItemBuilder">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=ItemBuilder&theme=tokyonight&hide_border=true&description_lines_count=2" />
+  </a>
 </p>
 
-> **More Minecraft projects:** [ItemBuilder](https://github.com/atozuser0224/ItemBuilder) · [mineFactories](https://github.com/atozuser0224/mineFactories) · [StatLib](https://github.com/atozuser0224/StatLib) · [CardSystem](https://github.com/atozuser0224/CardSystem) · [Arc](https://github.com/atozuser0224/Arc) · [ArkLib](https://github.com/atozuser0224/ArkLib)
+> **More Minecraft projects:** [mineFactories](https://github.com/atozuser0224/mineFactories) · [StatLib](https://github.com/atozuser0224/StatLib) · [CardSystem](https://github.com/atozuser0224/CardSystem) · [ArkLib](https://github.com/atozuser0224/ArkLib) · [EntityComponentSystemWithPaper](https://github.com/atozuser0224/EntityComponentSystemWithPaper)
 
 ### 🕶️ AR & Computer Vision
 <p float="left">
@@ -99,41 +105,31 @@ data class Developer(
   </a>
 </p>
 
-> 🌐 **Live demo:** [glass-virtual-try-on](https://atozuser0224.github.io/glass-virtual-try-on/) — Try virtual glasses on your face in real-time!
+> 🌐 **Live demo:** [glass-virtual-try-on](https://atozuser0224.github.io/glass-virtual-try-on/) &mdash; Try virtual glasses on your face in real-time!
 
 ### 🤖 AI & Agents
 <p float="left">
   <a href="https://github.com/atozuser0224/AiChatAssist">
     <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=AiChatAssist&theme=tokyonight&hide_border=true&description_lines_count=2" />
   </a>
-  <a href="https://github.com/atozuser0224/MoAgent">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=MoAgent&theme=tokyonight&hide_border=true&description_lines_count=2" />
-  </a>
-</p>
-
-> **More AI projects:** [MoAgentAppControll](https://github.com/atozuser0224/MoAgentAppControll)
-
-### 🏗️ Game Engines & Architecture
-<p float="left">
-  <a href="https://github.com/atozuser0224/ArcaneReactor">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=ArcaneReactor&theme=tokyonight&hide_border=true&description_lines_count=2" />
-  </a>
-  <a href="https://github.com/atozuser0224/AstarinGameEngine">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=AstarinGameEngine&theme=tokyonight&hide_border=true&description_lines_count=2" />
-  </a>
-</p>
-
-> **More engine projects:** [ArcaneRefactor](https://github.com/atozuser0224/ArcaneRefactor) · [EntityComponentSystemWithPaper](https://github.com/atozuser0224/EntityComponentSystemWithPaper)
-
-### ♿ Accessibility
-<p float="left">
   <a href="https://github.com/atozuser0224/LoadForBlind">
     <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=LoadForBlind&theme=tokyonight&hide_border=true&description_lines_count=2" />
   </a>
-  <a href="https://github.com/atozuser0224/Body_Detection_Ui_System">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=Body_Detection_Ui_System&theme=tokyonight&hide_border=true&description_lines_count=2" />
+</p>
+
+> More: [MoAgent](https://github.com/atozuser0224/MoAgent) · [Body_Detection_Ui_System](https://github.com/atozuser0224/Body_Detection_Ui_System)
+
+### 🏗️ Game Engines & Architecture
+<p float="left">
+  <a href="https://github.com/atozuser0224/AstarinGameEngine">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=AstarinGameEngine&theme=tokyonight&hide_border=true&description_lines_count=2" />
+  </a>
+  <a href="https://github.com/atozuser0224/Unity_RhythmGame">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=Unity_RhythmGame&theme=tokyonight&hide_border=true&description_lines_count=2" />
   </a>
 </p>
+
+> **More engine projects:** [ArcaneRefactor](https://github.com/atozuser0224/ArcaneRefactor) · [ArcaneReactor](https://github.com/atozuser0224/ArcaneReactor) · [GameEngine2](https://github.com/atozuser0224/GameEngine2)
 
 ---
 
