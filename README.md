@@ -1,174 +1,45 @@
-﻿<div align="center">
+﻿<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
+  <img alt="Arc — I'm building Lambda, a Windows assistant that uses your apps for you in a desktop of its own." src="assets/banner-light.svg" width="100%">
+</picture>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,20&height=200&section=header&text=Arc&fontSize=80&fontAlignY=35&animation=fadeIn&desc=Building%20Games%20%26%20Tools%20with%20Code&descAlignY=55&descSize=20" />
+Hi, I'm Arc. Most of my time right now goes into **Lambda**, an assistant for Windows.
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=1000&color=6C8EEB&center=true&vCenter=true&random=false&width=600&lines=%F0%9F%8E%AE+Minecraft+Plugin+Developer;%F0%9F%8F%97%EF%B8%8F+Game+Engine+Builder;%F0%9F%A4%96+AI+Explorer;%F0%9F%95%B6%EF%B8%8F+AR+Enthusiast;%F0%9F%92%BB+Full-Stack+Hobbyist)](https://git.io/typing-svg)
+The idea is simple: you ask for something in plain words, and Lambda opens the apps, clicks through them and comes back with the result. The part I care about most is that it never borrows your mouse or keyboard. It works inside a separate Windows session that you don't have to watch, and when it needs something only you can give — a login, a 2FA code, a yes — it asks with a small form instead of taking over your screen.
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fatozuser0224&count_bg=%236C8EEB&title_bg=%232D333B&icon=github.svg&icon_color=%23FFFFFF&title=visitors&edge_flat=false)](https://hits.seeyoufarm.com)
+### What it does today
 
-</div>
+- **Works in its own desktop.** Apps Lambda opens run in a Windows child session, so your windows keep their focus and nothing flashes up while you work.
+- **Reads your windows without touching them.** For apps you already have open, it uses accessibility patterns (invoke, value, selection) rather than simulated clicks.
+- **Asks before it acts.** Sending mail, deleting things or paying goes through an approval card — on the PC, or signed on your phone.
+- **Rooms with more than one helper.** You can add assistants with their own roles to a team chat; they answer when they're named and stay quiet otherwise.
+- **Talk to it.** There's a call mode: speak, it answers out loud, and you can cut in.
+- **Point at things.** Freeze the screen, circle what you mean, and ask about it.
 
----
-
-## 🧑‍💻 About Me
-
-```kotlin
-data class Developer(
-    val name: String = "Arc",
-    val focus: List<String> = listOf(
-        "Minecraft Plugin Development",
-        "Game Engine Architecture",
-        "AI & Automation",
-        "AR / Computer Vision"
-    ),
-    val loves: List<String> = listOf("☕ Kotlin", "🎮 Gaming", "🏗️ Building Systems"),
-    val motto: String = "복잡한 것을 단순하게, 단순한 것을 아름답게"
-)
-```
-
-- 🔭 **Currently working on:** Minecraft plugin ecosystems & AR web apps
-- 🌱 **Learning:** Advanced Kotlin coroutines, WebGL/Three.js, AI agent systems
-- 🎯 **Goal:** Build tools that make other developers' lives easier
-- 📫 **Reach me:** [GitHub Issues](https://github.com/atozuser0224) or Discussions
-
----
-
-## 🛠️ Tech Stack
-
-### Languages
-![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![C#](https://img.shields.io/badge/C%23-512BD4?style=for-the-badge&logo=csharp&logoColor=white)
-
-### Frameworks & Libraries
-![PaperMC](https://img.shields.io/badge/PaperMC-FFAA00?style=for-the-badge&logo=minecraft&logoColor=black)
-![Spring](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
-![Android](https://img.shields.io/badge/Android-34A853?style=for-the-badge&logo=android&logoColor=white)
-![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white)
-![Jeeliz](https://img.shields.io/badge/Jeeliz_FaceFilter-FF6B6B?style=for-the-badge&logo=webauthn&logoColor=white)
-![JPA](https://img.shields.io/badge/JPA-59666C?style=for-the-badge&logo=hibernate&logoColor=white)
-
-### Tools
-![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ_IDEA-000000?style=for-the-badge&logo=intellijidea&logoColor=white)
-![Gradle](https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Unity](https://img.shields.io/badge/Unity-FFFFFF?style=for-the-badge&logo=unity&logoColor=black)
-
----
-
-## 📊 GitHub Stats
-
-<div align="center">
-
-![Arc's GitHub stats](https://github-readme-stats.vercel.app/api?username=atozuser0224&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true&custom_title=%F0%9F%93%8A%20Arc's%20GitHub%20Stats&rank_icon=github)
-
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=atozuser0224&layout=compact&theme=tokyonight&hide_border=true&langs_count=8&custom_title=%F0%9F%94%A5%20Most%20Used%20Languages)
-
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=atozuser0224&theme=tokyonight&hide_border=true)
-
-</div>
-
----
-
-## 🚀 Featured Projects
-
-### 🎮 Minecraft Plugins
-<p float="left">
-  <a href="https://github.com/atozuser0224/InvMaker">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=InvMaker&theme=tokyonight&hide_border=true&description_lines_count=2" />
-  </a>
-  <a href="https://github.com/atozuser0224/Arc">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=Arc&theme=tokyonight&hide_border=true&description_lines_count=2" />
-  </a>
-  <a href="https://github.com/atozuser0224/ServerMinecraft">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=ServerMinecraft&theme=tokyonight&hide_border=true&description_lines_count=2" />
-  </a>
-  <a href="https://github.com/atozuser0224/ItemBuilder">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=ItemBuilder&theme=tokyonight&hide_border=true&description_lines_count=2" />
-  </a>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/lambda-rooms-dark.png">
+    <img alt="A Lambda team room: the user, Lambda and two assistant bots talking in one timeline" src="assets/lambda-rooms-light.png" width="49%">
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/lambda-dashboard-dark.png">
+    <img alt="Lambda's dashboard: schedule, mail, tasks and phone status laid out on one screen" src="assets/lambda-dashboard-light.png" width="49%">
+  </picture>
 </p>
 
-> **More Minecraft projects:** [mineFactories](https://github.com/atozuser0224/mineFactories) · [StatLib](https://github.com/atozuser0224/StatLib) · [CardSystem](https://github.com/atozuser0224/CardSystem) · [ArkLib](https://github.com/atozuser0224/ArkLib) · [EntityComponentSystemWithPaper](https://github.com/atozuser0224/EntityComponentSystemWithPaper)
+It's early. Builds are unsigned development releases, there's a lot I'm still rebuilding, and I ship small updates often. If you're on Windows 11 and want to try it:
 
-### 🕶️ AR & Computer Vision
-<p float="left">
-  <a href="https://github.com/atozuser0224/glass-virtual-try-on">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=glass-virtual-try-on&theme=tokyonight&hide_border=true&description_lines_count=2" />
-  </a>
-  <a href="https://github.com/atozuser0224/3dGlass">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=3dGlass&theme=tokyonight&hide_border=true&description_lines_count=2" />
-  </a>
-</p>
+**[Download the latest Lambda installer →](https://github.com/atozuser0224/lambda-installer/releases/latest)**
 
-> 🌐 **Live demo:** [glass-virtual-try-on](https://atozuser0224.github.io/glass-virtual-try-on/) &mdash; Try virtual glasses on your face in real-time!
+There's an Android companion app too, for chatting with your PC and answering approvals away from your desk.
 
-### 🤖 AI & Agents
-<p float="left">
-  <a href="https://github.com/atozuser0224/AiChatAssist">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=AiChatAssist&theme=tokyonight&hide_border=true&description_lines_count=2" />
-  </a>
-  <a href="https://github.com/atozuser0224/LoadForBlind">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=LoadForBlind&theme=tokyonight&hide_border=true&description_lines_count=2" />
-  </a>
-</p>
+### Other things I've made
 
-> More: [MoAgent](https://github.com/atozuser0224/MoAgent) · [Body_Detection_Ui_System](https://github.com/atozuser0224/Body_Detection_Ui_System)
+- **[riverworks-city](https://github.com/atozuser0224/riverworks-city)** — A low-poly city builder where you feed settlements and wire factories with belts and pipes.
+- **[one-cart](https://github.com/atozuser0224/one-cart)** — An online co-op shopping game for Windows.
+- **[BoxSpec](https://github.com/atozuser0224/BoxSpec)** — A local-first layout editor that lets coding agents check UI against a spec.
+- **[r-python-study-lab](https://github.com/atozuser0224/r-python-study-lab)** — An R and Python workbook that runs the code right in the browser.
+- **[glass-virtual-try-on](https://github.com/atozuser0224/glass-virtual-try-on)** — Try on glasses through your webcam with MediaPipe and Three.js.
+- **[Arc](https://github.com/atozuser0224/Arc)** — Kotlin coroutine helpers for Minecraft Paper servers, where I started.
 
-### 🏗️ Game Engines & Architecture
-<p float="left">
-  <a href="https://github.com/atozuser0224/AstarinGameEngine">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=AstarinGameEngine&theme=tokyonight&hide_border=true&description_lines_count=2" />
-  </a>
-  <a href="https://github.com/atozuser0224/Unity_RhythmGame">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=atozuser0224&repo=Unity_RhythmGame&theme=tokyonight&hide_border=true&description_lines_count=2" />
-  </a>
-</p>
-
-> **More engine projects:** [ArcaneRefactor](https://github.com/atozuser0224/ArcaneRefactor) · [ArcaneReactor](https://github.com/atozuser0224/ArcaneReactor) · [GameEngine2](https://github.com/atozuser0224/GameEngine2)
-
----
-
-## 🎯 What I'm Building Now
-
-```mermaid
-mindmap
-  root((Arc's Dev))
-    Minecraft
-      Plugin Libraries
-      Inventory Systems
-      Server Tools
-    AR / Web
-      Virtual Try-On
-      3D Rendering
-      Face Detection
-    AI Systems
-      Chat Agents
-      Multi-Modal
-      Automation
-    Game Engines
-      ECS Architecture
-      Reactive Systems
-      Entity Framework
-```
-
----
-
-<div align="center">
-
-## 🤝 Let's Connect
-
-[![GitHub](https://img.shields.io/badge/GitHub-atozuser0224-181717?style=for-the-badge&logo=github)](https://github.com/atozuser0224)
-[![Email](https://img.shields.io/badge/Email-Open_Issue-D14836?style=for-the-badge&logo=gmail&logoColor=white)](https://github.com/atozuser0224)
-
----
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,20&height=100&section=footer&animation=fadeIn" />
-
-<sub>Made with ❤️ by Arc | Last updated: 2026.07.02</sub>
-
-</div>
+<sub>Mostly TypeScript, C# and Kotlin these days, with some Python and Rust where it fits. The fastest way to reach me is an issue on whichever repo you're looking at.</sub>

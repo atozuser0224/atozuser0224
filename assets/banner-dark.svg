@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 420" width="1280" height="420" role="img" aria-label="Arc — building Lambda, a Windows assistant that works in its own desktop">
+  <defs>
+    <radialGradient id="orb" cx=".34" cy=".26" r=".85">
+      <stop offset=".01" stop-color="#f7feff"/>
+      <stop offset=".32" stop-color="#91d5f7"/>
+      <stop offset=".76" stop-color="#3ea6ff"/>
+      <stop offset="1" stop-color="#0d5fc8"/>
+    </radialGradient>
+    <radialGradient id="shadow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#0d5fc8" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#0d5fc8" stop-opacity="0"/>
+    </radialGradient>
+    <style>
+      .t { font-family: "Segoe UI Variable Display", "Segoe UI", -apple-system, "Helvetica Neue", Arial, sans-serif; }
+      .float { animation: float 6s ease-in-out infinite; transform-origin: 300px 200px; }
+      .lift { animation: lift 6s ease-in-out infinite; }
+      @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+      @keyframes lift { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(0, -10px); } }
+      @media (prefers-reduced-motion: reduce) { .float, .lift { animation: none; } }
+    </style>
+  </defs>
+  <rect width="1280" height="420" rx="24" fill="#0d1117"/>
+  <rect x=".5" y=".5" width="1279" height="419" rx="23.5" fill="none" stroke="#30363d"/>
+
+  <!-- a window the orb is carrying, outlined the way Lambda marks what it touches -->
+  <g class="lift">
+    <rect x="128" y="92" width="300" height="196" rx="12" fill="#161b22"/>
+    <rect x="128" y="92" width="300" height="196" rx="12" fill="none" stroke="#3ea6ff" stroke-width="2"/>
+    <rect x="122" y="86" width="312" height="208" rx="16" fill="none" stroke="#3ea6ff" stroke-opacity=".22" stroke-width="6"/>
+    <rect x="128" y="92" width="300" height="30" rx="12" fill="#21262d"/>
+    <rect x="128" y="110" width="300" height="12" fill="#21262d"/>
+    <circle cx="148" cy="107" r="4" fill="#3d444d"/><circle cx="162" cy="107" r="4" fill="#3d444d"/>
+    <rect x="152" y="146" width="168" height="10" rx="5" fill="#3d444d"/>
+    <rect x="152" y="168" width="232" height="10" rx="5" fill="#30363d"/>
+    <rect x="152" y="190" width="204" height="10" rx="5" fill="#30363d"/>
+    <rect x="152" y="226" width="96" height="32" rx="16" fill="#e6edf3"/>
+  </g>
+
+  <!-- the orb, holding the window by its title bar -->
+  <ellipse cx="282" cy="330" rx="150" ry="14" fill="url(#shadow)"/>
+  <g class="float">
+    <circle cx="410" cy="96" r="54" fill="url(#orb)"/>
+  </g>
+
+  <text class="t" x="560" y="150" font-size="22" fill="#9198a1" letter-spacing=".5">Arc · atozuser0224</text>
+  <text class="t" x="560" y="214" font-size="52" font-weight="600" fill="#e6edf3" letter-spacing="-1">I'm building Lambda.</text>
+  <text class="t" x="560" y="262" font-size="24" fill="#c9d1d9">A Windows assistant that uses your apps for you —</text>
+  <text class="t" x="560" y="296" font-size="24" fill="#c9d1d9">in a desktop of its own, so yours stays yours.</text>
+</svg>
