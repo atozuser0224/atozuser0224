@@ -3,15 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
   <title>볶음너구리 파는 곳</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦝</text></svg>">
   <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="map" aria-label="볶음너구리 파는 곳 지도"></div>
-  <div class="title">볶음너구리 파는 곳</div>
-  <div id="empty" class="empty" hidden>아직 등록된 매장이 없어요</div>
+  <div id="map"></div>
+
+  <header class="card">
+    <h1>볶음너구리 파는 곳</h1>
+    <p id="summary">불러오는 중…</p>
+  </header>
+
   <script src="vendor/leaflet/leaflet.js"></script>
   <script src="app.js"></script>
 </body>
