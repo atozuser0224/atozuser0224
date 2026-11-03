@@ -19,7 +19,7 @@ cd "$(dirname "$0")"
 
 echo "▶ 파일 복사 → $HOST:~/$REMOTE_DIR"
 ssh "$HOST" "mkdir -p ~/$REMOTE_DIR"
-tar czf - index.html style.css app.js data vendor | ssh "$HOST" "rm -rf ~/$REMOTE_DIR/* && tar xzf - -C ~/$REMOTE_DIR"
+tar czf - index.html style.css app.js raccoon.svg data vendor | ssh "$HOST" "rm -rf ~/$REMOTE_DIR/* && tar xzf - -C ~/$REMOTE_DIR"
 
 echo "▶ 서버 설정"
 ssh "$HOST" CADDY="$CADDY" DOMAIN="$DOMAIN" REMOTE_DIR="$REMOTE_DIR" 'bash -s' <<'REMOTE'

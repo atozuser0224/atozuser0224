@@ -7,13 +7,14 @@ const STOCK = {
 };
 
 const SEOUL = [37.5665, 126.978];
+const DARK = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
 function createMap() {
   const map = L.map('map', { zoomControl: false }).setView(SEOUL, 12);
   L.control.zoom({ position: 'bottomright' }).addTo(map);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+  L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/${DARK ? 'dark_all' : 'voyager'}/{z}/{x}/{y}{r}.png`, {
     maxZoom: 19,
     subdomains: 'abcd',
     attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/attributions">CARTO</a>',
@@ -38,15 +39,15 @@ function addStore(map, store) {
 
   const icon = L.divIcon({
     className: '',
-    html: `<div class="pin ${cls}"><i></i>${escapeHtml(store.stock)}</div>`,
+    html: `<div class="pin ${cls}"><img src="raccoon.svg" alt="">${escapeHtml(store.stock)}</div>`,
     iconSize: [0, 0],
-    popupAnchor: [0, -40],
+    popupAnchor: [0, -46],
   });
 
   const popup = `
-    <div class="store">
+    <div class="store ${cls}">
       <h2>${escapeHtml(store.name)}</h2>
-      <div class="stock ${cls}">${label}</div>
+      <span class="badge">${label}</span>
       ${store.updated ? `<time>${escapeHtml(store.updated)} 기준</time>` : ''}
     </div>`;
 
@@ -58,13 +59,17 @@ function addStore(map, store) {
 }
 
 function renderSummary(stores) {
-  const el = document.getElementById('summary');
+  const summary = document.getElementById('summary');
   if (!stores.length) {
-    el.textContent = '아직 등록된 매장이 없어요';
+    summary.innerHTML = '<li class="out">준비 중</li>';
+    document.getElementById('empty').hidden = false;
     return;
   }
-  const selling = stores.filter((s) => s.stock !== '품절').length;
-  el.innerHTML = `<b>${selling}곳</b>에서 판매 중 · 전체 ${stores.length}곳`;
+  summary.innerHTML = Object.entries(STOCK)
+    .map(([key, { cls }]) => [key, cls, stores.filter((s) => s.stock === key).length])
+    .filter(([, , n]) => n > 0)
+    .map(([key, cls, n]) => `<li class="${cls}">${key} <b>${n}</b></li>`)
+    .join('');
 }
 
 (async () => {
@@ -75,6 +80,6 @@ function renderSummary(stores) {
   renderSummary(stores);
 
   if (stores.length) {
-    map.fitBounds(stores.map((s) => [s.lat, s.lng]), { padding: [80, 80], maxZoom: 16 });
+    map.fitBounds(stores.map((s) => [s.lat, s.lng]), { padding: [90, 90], maxZoom: 16 });
   }
 })();

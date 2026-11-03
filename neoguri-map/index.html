@@ -3,19 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#fff8f0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1f1a17" media="(prefers-color-scheme: dark)">
   <title>볶음너구리 파는 곳</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦝</text></svg>">
+  <meta name="description" content="볶음너구리 파는 매장과 재고를 지도로 한눈에">
+  <link rel="icon" href="raccoon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="vendor/jua/jua.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="map"></div>
 
   <header class="card">
-    <h1>볶음너구리 파는 곳</h1>
-    <p id="summary">불러오는 중…</p>
+    <img class="logo" src="raccoon.svg" alt="" width="44" height="44">
+    <div>
+      <h1>볶음너구리 파는 곳</h1>
+      <ul id="summary" class="chips" aria-live="polite"></ul>
+    </div>
   </header>
+
+  <div id="empty" class="empty" hidden>
+    <img src="raccoon.svg" alt="" width="72" height="72">
+    <p>아직 등록된 매장이 없어요</p>
+    <small>곧 채워질 거예요!</small>
+  </div>
 
   <script src="vendor/leaflet/leaflet.js"></script>
   <script src="app.js"></script>

@@ -1,12 +1,29 @@
 :root {
-  --text: #1c1c1e;
-  --muted: #8e8e93;
+  --bg: #fff8f0;
   --surface: #ffffff;
-  --shadow: 0 4px 20px rgba(0, 0, 0, .08), 0 1px 3px rgba(0, 0, 0, .08);
+  --text: #2a211c;
+  --muted: #9a8b80;
+  --line: #f2e6da;
+  --brand: #ff6a1f;
+  --brand-2: #e8361b;
+  --shadow: 0 10px 30px rgba(120, 60, 20, .14), 0 2px 6px rgba(120, 60, 20, .08);
 
-  --in: #34c759;
-  --low: #ff9f0a;
-  --out: #c7c7cc;
+  --in: #ff5a1f;
+  --low: #ffb020;
+  --out: #c4b8ae;
+
+  --title-font: "Jua", "Pretendard", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1f1a17;
+    --surface: #2a2420;
+    --text: #f6ece3;
+    --muted: #a8988c;
+    --line: #3a312b;
+    --shadow: 0 10px 30px rgba(0, 0, 0, .45), 0 2px 6px rgba(0, 0, 0, .3);
+    --out: #6d625a;
+  }
 }
 
 * { box-sizing: border-box; }
@@ -14,64 +31,137 @@ html, body, #map { height: 100%; margin: 0; }
 body {
   font-family: "Pretendard", -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
   color: var(--text);
-  background: #f2f2f2;
+  background: var(--bg);
   -webkit-font-smoothing: antialiased;
+}
+
+/* 지도: 따뜻한 톤 */
+#map { background: var(--bg); }
+.leaflet-tile-pane { filter: sepia(.18) saturate(.85) brightness(1.02); }
+@media (prefers-color-scheme: dark) {
+  .leaflet-tile-pane { filter: sepia(.25) saturate(.7); }
 }
 
 /* 상단 카드 */
 .card {
-  position: absolute;
-  z-index: 1000;
-  top: max(16px, env(safe-area-inset-top));
-  left: 16px;
-  padding: 14px 18px;
-  background: var(--surface);
-  border-radius: 16px;
-  box-shadow: var(--shadow);
+  position: absolute; z-index: 1000;
+  top: max(16px, env(safe-area-inset-top)); left: 16px;
   max-width: calc(100% - 32px);
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 18px 12px 12px;
+  background: var(--surface);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  animation: drop .5s cubic-bezier(.2, .9, .3, 1.2) both;
 }
-.card h1 { margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -.02em; }
-.card p { margin: 4px 0 0; font-size: 13px; color: var(--muted); }
-.card b { color: var(--text); font-weight: 600; }
+.logo { flex-shrink: 0; display: block; filter: drop-shadow(0 3px 6px rgba(255, 106, 31, .35)); }
+.card h1 {
+  margin: 0;
+  font-family: var(--title-font); font-weight: 400;
+  font-size: 22px; line-height: 1.15; letter-spacing: -.01em;
+  background: linear-gradient(90deg, var(--brand-2), var(--brand));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+.chips { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.chips li {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 9px; border-radius: 999px;
+  background: var(--bg); border: 1px solid var(--line);
+  font-size: 12px; font-weight: 600; color: var(--muted);
+}
+.chips li b { color: var(--text); }
+.chips li::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--c); }
+
+/* 빈 상태 */
+.empty {
+  position: absolute; z-index: 1000; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 26px 34px; text-align: center;
+  background: var(--surface); border-radius: 26px; box-shadow: var(--shadow);
+}
+.empty[hidden] { display: none; }
+.empty img { display: block; margin: 0 auto 10px; animation: bob 2.4s ease-in-out infinite; }
+.empty p { margin: 0; font-family: var(--title-font); font-size: 19px; }
+.empty small { display: block; margin-top: 4px; color: var(--muted); font-size: 13px; }
 
 /* 지도 컨트롤 */
-.leaflet-control-zoom { border: 0 !important; box-shadow: var(--shadow) !important; border-radius: 12px !important; overflow: hidden; }
-.leaflet-control-zoom a { width: 36px !important; height: 36px !important; line-height: 36px !important; color: var(--text) !important; border-color: #f0f0f0 !important; }
+.leaflet-control-zoom { border: 0 !important; box-shadow: var(--shadow) !important; border-radius: 14px !important; overflow: hidden; }
+.leaflet-control-zoom a {
+  width: 40px !important; height: 40px !important; line-height: 40px !important;
+  background: var(--surface) !important; color: var(--text) !important; border-color: var(--line) !important;
+}
 .leaflet-bottom.leaflet-right { margin-bottom: env(safe-area-inset-bottom); }
-.leaflet-control-attribution { background: rgba(255, 255, 255, .7) !important; font-size: 10px; }
+.leaflet-control-attribution { background: color-mix(in srgb, var(--surface) 70%, transparent) !important; color: var(--muted); font-size: 10px; }
+.leaflet-control-attribution a { color: var(--muted) !important; }
 
 /* 핀 */
-.pin {
-  position: absolute;
-  transform: translate(-50%, calc(-100% - 6px));
-  display: flex; align-items: center; gap: 6px;
-  padding: 6px 10px 6px 8px;
-  background: var(--surface);
-  border-radius: 999px;
-  box-shadow: var(--shadow);
-  font-size: 12px; font-weight: 600; white-space: nowrap;
-  cursor: pointer;
-}
-.pin::after { /* 꼬리 */
-  content: ""; position: absolute; left: 50%; bottom: -5px;
-  width: 10px; height: 10px; background: var(--surface);
-  transform: translateX(-50%) rotate(45deg);
-  border-radius: 0 0 2px 0;
-}
-.pin i { width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
-.pin.out { color: var(--muted); }
-
 .in  { --c: var(--in); }
 .low { --c: var(--low); }
 .out { --c: var(--out); }
 
+.pin {
+  position: absolute;
+  transform: translate(-50%, calc(-100% - 8px));
+  display: flex; align-items: center; gap: 6px;
+  padding: 5px 11px 5px 5px;
+  border-radius: 999px;
+  background: var(--surface); color: var(--text);
+  box-shadow: var(--shadow);
+  font-size: 13px; font-weight: 700; white-space: nowrap;
+  cursor: pointer;
+  transition: transform .15s ease;
+  animation: pop .45s cubic-bezier(.2, .9, .3, 1.4) both;
+}
+.pin:hover { transform: translate(-50%, calc(-100% - 11px)) scale(1.06); }
+.pin::after {
+  content: ""; position: absolute; left: 50%; bottom: -6px;
+  width: 12px; height: 12px; background: inherit;
+  transform: translateX(-50%) rotate(45deg); border-radius: 0 0 3px 0;
+}
+.pin img { width: 22px; height: 22px; display: block; border-radius: 50%; }
+
+.pin.in { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #fff; }
+.pin.in::after { background: var(--brand-2); }
+.pin.low img, .pin.out img { box-shadow: 0 0 0 2px var(--c); }
+.pin.out { color: var(--muted); }
+.pin.out img { filter: grayscale(1); opacity: .7; }
+
+/* 판매 중 핀에 은은한 파동 */
+.pin.in::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  box-shadow: 0 0 0 0 rgba(255, 90, 31, .35);
+  animation: pulse 2.2s ease-out infinite;
+}
+
 /* 팝업 */
-.leaflet-popup-content-wrapper { border-radius: 14px; box-shadow: var(--shadow); padding: 0; }
-.leaflet-popup-content { margin: 14px 16px; font: inherit; }
+.leaflet-popup-content-wrapper, .leaflet-popup-tip { background: var(--surface); color: var(--text); }
+.leaflet-popup-content-wrapper { border-radius: 20px; box-shadow: var(--shadow); padding: 0; }
+.leaflet-popup-content { margin: 16px 18px; font: inherit; min-width: 160px; }
 .leaflet-popup-tip { box-shadow: none; }
 .leaflet-container a.leaflet-popup-close-button { display: none; }
 
-.store h2 { margin: 0 0 6px; font-size: 15px; font-weight: 700; letter-spacing: -.01em; }
-.store .stock { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; }
-.store .stock::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
-.store time { display: block; margin-top: 6px; font-size: 12px; color: var(--muted); }
+.store h2 { margin: 0 0 8px; font-family: var(--title-font); font-weight: 400; font-size: 19px; }
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px; border-radius: 999px;
+  font-size: 13px; font-weight: 700;
+  color: var(--c); background: color-mix(in srgb, var(--c) 14%, transparent);
+}
+.badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--c); }
+.out .badge, .badge.out { color: var(--muted); }
+.store time { display: block; margin-top: 8px; font-size: 12px; color: var(--muted); }
+
+/* 애니메이션 */
+@keyframes drop { from { opacity: 0; transform: translateY(-12px); } }
+@keyframes pop  { from { opacity: 0; transform: translate(-50%, calc(-100% + 4px)) scale(.6); } }
+@keyframes bob  { 50% { transform: translateY(-6px); } }
+@keyframes pulse { to { box-shadow: 0 0 0 8px rgba(255, 90, 31, 0); } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before { animation: none !important; transition: none !important; }
+}
+
+@media (max-width: 480px) {
+  .card { left: 12px; right: 12px; max-width: none; }
+  .card h1 { font-size: 20px; }
+}
