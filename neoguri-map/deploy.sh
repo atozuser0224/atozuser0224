@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # 볶음너구리 지도를 람다 서버(Oracle, 168.107.20.114)에 올려요.
-# SSH 키가 있는 PC에서 실행: ./deploy.sh
+# SSH 키가 있는 PC에서 실행: ./deploy.sh   (Node.js 18+ 필요)
 #
 # 하는 일
-#   1. 사이트 파일을 서버 ~/neoguri-map/site 로 복사
+#   0. build.mjs로 dist/ 생성 (매장 목록 HTML·구조화 데이터·sitemap·robots)
+#   1. dist/ 를 서버 ~/neoguri-map/site 로 복사
 #   2. nginx 컨테이너(neoguri-map)를 Caddy와 같은 네트워크에 띄움
 #   3. Caddyfile에 neoguri 주소가 없으면 추가하고(백업 후) 검증 → 리로드
 #
@@ -12,14 +13,17 @@ set -euo pipefail
 
 HOST="${HOST:-oracle-hermes}"
 CADDY="${CADDY:-deploy-caddy-1}"
-DOMAIN="${DOMAIN:-neoguri.168-107-20-114.sslip.io}"
+DOMAIN="${DOMAIN:-bokkeumneoguri.duckdns.org}"   # DuckDNS에서 만든 주소
 REMOTE_DIR="neoguri-map/site"
 
 cd "$(dirname "$0")"
 
+echo "▶ 빌드"
+SITE_URL="https://$DOMAIN" node build.mjs
+
 echo "▶ 파일 복사 → $HOST:~/$REMOTE_DIR"
 ssh "$HOST" "mkdir -p ~/$REMOTE_DIR"
-tar czf - index.html style.css app.js raccoon.svg data vendor | ssh "$HOST" "rm -rf ~/$REMOTE_DIR/* && tar xzf - -C ~/$REMOTE_DIR"
+tar czf - -C dist . | ssh "$HOST" "rm -rf ~/$REMOTE_DIR/* && tar xzf - -C ~/$REMOTE_DIR"
 
 echo "▶ 서버 설정"
 ssh "$HOST" CADDY="$CADDY" DOMAIN="$DOMAIN" REMOTE_DIR="$REMOTE_DIR" 'bash -s' <<'REMOTE'

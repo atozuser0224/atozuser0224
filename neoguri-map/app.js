@@ -51,11 +51,33 @@ function addStore(map, store) {
       ${store.updated ? `<time>${escapeHtml(store.updated)} 기준</time>` : ''}
     </div>`;
 
-  L.marker([store.lat, store.lng], {
+  return L.marker([store.lat, store.lng], {
     icon,
     title: store.name,
     zIndexOffset: cls === 'out' ? 0 : 1000,
   }).bindPopup(popup).addTo(map);
+}
+
+function renderList(map, stores, markers) {
+  const details = document.getElementById('stores');
+  const list = document.getElementById('list');
+  if (!stores.length) {
+    details.hidden = true;
+    return;
+  }
+  list.innerHTML = stores.map((s) => {
+    const { cls, label } = STOCK[s.stock];
+    return `<li tabindex="0"><span class="name">${escapeHtml(s.name)}</span><span class="tag ${cls}">${label}</span></li>`;
+  }).join('');
+  [...list.children].forEach((li, i) => {
+    const go = () => {
+      map.flyTo(markers[i].getLatLng(), Math.max(map.getZoom(), 16), { duration: 0.6 });
+      map.once('moveend', () => markers[i].openPopup());
+      if (window.innerWidth < 600) details.open = false;
+    };
+    li.addEventListener('click', go);
+    li.addEventListener('keydown', (e) => { if (e.key === 'Enter') go(); });
+  });
 }
 
 function renderSummary(stores) {
@@ -76,8 +98,9 @@ function renderSummary(stores) {
   const map = createMap();
   const stores = await loadStores();
 
-  stores.forEach((store) => addStore(map, store));
+  const markers = stores.map((store) => addStore(map, store));
   renderSummary(stores);
+  renderList(map, stores, markers);
 
   if (stores.length) {
     map.fitBounds(stores.map((s) => [s.lat, s.lng]), { padding: [90, 90], maxZoom: 16 });

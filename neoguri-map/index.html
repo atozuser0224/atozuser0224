@@ -3,24 +3,49 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>볶음너구리 파는 곳 | 편의점·마트 재고 지도</title>
+  <meta name="description" content="볶음너구리 어디서 팔까? 볶음너구리 파는 편의점·마트와 재고(있음·조금·품절)를 지도로 한눈에 확인하세요.">
+  <link rel="canonical" href="%SITE_URL%/">
+  <meta name="robots" content="index, follow">
+  <!--VERIFY-->
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="볶음너구리 파는 곳">
+  <meta property="og:title" content="볶음너구리 파는 곳 | 편의점·마트 재고 지도">
+  <meta property="og:description" content="볶음너구리 파는 편의점·마트와 재고를 지도로 한눈에.">
+  <meta property="og:url" content="%SITE_URL%/">
+  <meta property="og:image" content="%SITE_URL%/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
   <meta name="theme-color" content="#fff8f0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#1f1a17" media="(prefers-color-scheme: dark)">
-  <title>볶음너구리 파는 곳</title>
-  <meta name="description" content="볶음너구리 파는 매장과 재고를 지도로 한눈에">
   <link rel="icon" href="raccoon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="og.png">
   <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
   <link rel="stylesheet" href="vendor/jua/jua.css">
   <link rel="stylesheet" href="style.css">
+  <!--JSON_LD-->
 </head>
 <body>
-  <div id="map"></div>
+  <div id="map" role="region" aria-label="볶음너구리 판매처 지도"></div>
 
   <header class="card">
-    <img class="logo" src="raccoon.svg" alt="" width="44" height="44">
-    <div>
-      <h1>볶음너구리 파는 곳</h1>
-      <ul id="summary" class="chips" aria-live="polite"></ul>
+    <div class="head">
+      <img class="logo" src="raccoon.svg" alt="" width="44" height="44">
+      <div>
+        <h1>볶음너구리 파는 곳</h1>
+        <ul id="summary" class="chips" aria-live="polite"></ul>
+      </div>
     </div>
+    <details id="stores" class="stores">
+      <summary>볶음너구리 판매처 목록</summary>
+      <ul id="list">
+          <!--STORE_LIST-->
+      </ul>
+    </details>
   </header>
 
   <div id="empty" class="empty" hidden>

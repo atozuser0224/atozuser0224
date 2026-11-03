@@ -46,14 +46,14 @@ body {
 .card {
   position: absolute; z-index: 1000;
   top: max(16px, env(safe-area-inset-top)); left: 16px;
-  max-width: calc(100% - 32px);
-  display: flex; align-items: center; gap: 12px;
-  padding: 12px 18px 12px 12px;
+  width: 340px; max-width: calc(100% - 32px);
+  padding: 12px;
   background: var(--surface);
   border-radius: 22px;
   box-shadow: var(--shadow);
   animation: drop .5s cubic-bezier(.2, .9, .3, 1.2) both;
 }
+.head { display: flex; align-items: center; gap: 12px; padding-right: 6px; }
 .logo { flex-shrink: 0; display: block; filter: drop-shadow(0 3px 6px rgba(255, 106, 31, .35)); }
 .card h1 {
   margin: 0;
@@ -72,6 +72,30 @@ body {
 }
 .chips li b { color: var(--text); }
 .chips li::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--c); }
+
+/* 판매처 목록 */
+.stores { margin-top: 10px; border-top: 1px solid var(--line); }
+.stores[hidden] { display: none; }
+.stores summary {
+  list-style: none; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 4px 2px; font-size: 13px; font-weight: 600; color: var(--muted);
+}
+.stores summary::-webkit-details-marker { display: none; }
+.stores summary::after { content: "⌄"; font-size: 16px; line-height: 1; transition: transform .2s; }
+.stores[open] summary::after { transform: rotate(180deg); }
+.stores ul { list-style: none; margin: 8px 0 0; padding: 0; max-height: 40vh; overflow-y: auto; }
+.stores li {
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  padding: 9px 8px; border-radius: 12px; cursor: pointer; font-size: 14px;
+}
+.stores li:hover, .stores li:focus-visible { background: var(--bg); outline: none; }
+.stores .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tag {
+  flex-shrink: 0; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 700;
+  color: var(--c); background: color-mix(in srgb, var(--c) 14%, transparent);
+}
+.tag.out { color: var(--muted); }
 
 /* 빈 상태 */
 .empty {
@@ -162,6 +186,6 @@ body {
 }
 
 @media (max-width: 480px) {
-  .card { left: 12px; right: 12px; max-width: none; }
+  .card { left: 12px; right: 12px; width: auto; max-width: none; }
   .card h1 { font-size: 20px; }
 }
