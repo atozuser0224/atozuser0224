@@ -3,60 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>볶음너구리 어디 팔아?</title>
-  <meta name="description" content="볶음너구리를 파는 편의점·마트를 지도에서 찾고, 직접 본 재고를 제보하는 지도">
+  <title>볶음너구리 파는 곳</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦝</text></svg>">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="topbar">
-    <h1><span aria-hidden="true">🦝</span> 볶음너구리 어디 팔아?</h1>
-    <button id="toggle-panel" class="ghost" aria-controls="panel" aria-expanded="true">목록</button>
-  </header>
-
-  <main class="layout">
-    <aside id="panel" class="panel">
-      <section class="actions">
-        <button id="btn-locate">📍 내 위치</button>
-        <button id="btn-load">🏪 이 지역 매장 불러오기</button>
-        <button id="btn-add" class="ghost">➕ 지도에 직접 추가</button>
-      </section>
-
-      <p id="status" class="status" role="status" aria-live="polite">지도를 움직여 동네를 찾은 뒤 "이 지역 매장 불러오기"를 눌러 주세요.</p>
-
-      <section class="filters">
-        <label><input type="checkbox" id="only-yes"> 판매 확인된 곳만 보기</label>
-      </section>
-
-      <section class="legend" aria-label="범례">
-        <span><i class="dot yes"></i>있어요</span>
-        <span><i class="dot no"></i>없어요/품절</span>
-        <span><i class="dot unknown"></i>아직 제보 없음</span>
-      </section>
-
-      <h2>판매 제보된 매장 <small id="yes-count"></small></h2>
-      <ul id="list" class="list"></ul>
-
-      <details class="data">
-        <summary>내 제보 데이터</summary>
-        <p>제보는 이 브라우저에 저장됩니다. 내보낸 파일을 저장소의 <code>neoguri-map/data/reports.json</code>에 PR로 올려 주시면 모두에게 공유돼요.</p>
-        <div class="row">
-          <button id="btn-export" class="ghost">내보내기</button>
-          <label class="ghost file">가져오기<input type="file" id="file-import" accept="application/json" hidden></label>
-          <button id="btn-clear" class="ghost danger">내 제보 지우기</button>
-        </div>
-      </details>
-
-      <footer class="credit">
-        매장 위치: © OpenStreetMap 기여자 · 재고 정보는 사용자 제보로, 실제와 다를 수 있어요.
-      </footer>
-    </aside>
-
-    <div id="map" class="map" aria-label="지도"></div>
-  </main>
-
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <div id="map" aria-label="볶음너구리 파는 곳 지도"></div>
+  <div class="title">볶음너구리 파는 곳</div>
+  <div id="empty" class="empty" hidden>아직 등록된 매장이 없어요</div>
+  <script src="vendor/leaflet/leaflet.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
