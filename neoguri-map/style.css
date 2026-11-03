@@ -1,0 +1,108 @@
+:root {
+  --bg: #fffaf3;
+  --surface: #ffffff;
+  --text: #2b2118;
+  --muted: #7a6a5c;
+  --border: #eadfd2;
+  --accent: #d9480f;
+  --accent-text: #ffffff;
+  --yes: #2f9e44;
+  --no: #e03131;
+  --unknown: #868e96;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1b1714;
+    --surface: #25201c;
+    --text: #f3ece4;
+    --muted: #b3a597;
+    --border: #3a322b;
+    --accent: #ff7a3d;
+    --accent-text: #1b1714;
+  }
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 16px; border-bottom: 1px solid var(--border); background: var(--surface);
+}
+.topbar h1 { font-size: 18px; margin: 0; }
+
+.layout { flex: 1; display: flex; min-height: 0; }
+.panel {
+  width: 340px; flex-shrink: 0; overflow-y: auto; padding: 16px;
+  border-right: 1px solid var(--border); background: var(--surface);
+  display: flex; flex-direction: column; gap: 14px;
+}
+.panel.hidden { display: none; }
+.map { flex: 1; min-height: 0; }
+
+button, .file {
+  font: inherit; font-size: 14px; cursor: pointer;
+  padding: 9px 12px; border-radius: 10px; border: 1px solid var(--accent);
+  background: var(--accent); color: var(--accent-text);
+}
+button.ghost, .file.ghost { background: transparent; color: var(--text); border-color: var(--border); }
+button.danger { color: var(--no); }
+button:disabled { opacity: .5; cursor: progress; }
+button.active { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.actions { display: grid; gap: 8px; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; }
+.status { margin: 0; font-size: 13px; color: var(--muted); line-height: 1.5; }
+.filters label { font-size: 14px; display: flex; gap: 6px; align-items: center; }
+
+.legend { display: flex; gap: 12px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; vertical-align: -1px; }
+.dot.yes { background: var(--yes); } .dot.no { background: var(--no); } .dot.unknown { background: var(--unknown); }
+
+h2 { font-size: 15px; margin: 4px 0 0; }
+h2 small { color: var(--muted); font-weight: normal; }
+.list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.list li button {
+  width: 100%; text-align: left; background: transparent; color: var(--text);
+  border: 1px solid var(--border); display: flex; flex-direction: column; gap: 2px;
+}
+.list li button span { font-size: 12px; color: var(--muted); }
+.list .empty { font-size: 13px; color: var(--muted); }
+
+.data summary { cursor: pointer; font-size: 14px; }
+.data p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+code { font-size: 12px; }
+.credit { margin-top: auto; font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* 지도 마커 */
+.pin {
+  width: 18px; height: 18px; border-radius: 50%; border: 3px solid #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,.4);
+}
+.pin.yes { background: var(--yes); width: 22px; height: 22px; }
+.pin.no { background: var(--no); }
+.pin.unknown { background: var(--unknown); }
+
+.popup h3 { margin: 0 0 2px; font-size: 15px; }
+.popup .meta { color: #666; font-size: 12px; margin: 0 0 8px; }
+.popup .verdict { font-size: 13px; margin: 0 0 8px; }
+.popup .vote { display: flex; gap: 6px; }
+.popup .vote button { padding: 6px 10px; font-size: 13px; color: #fff; }
+.popup .vote .yes { background: var(--yes); border-color: var(--yes); }
+.popup .vote .no { background: var(--no); border-color: var(--no); }
+.popup .hist { margin: 8px 0 0; padding-left: 16px; font-size: 12px; color: #555; }
+.leaflet-container.adding { cursor: crosshair; }
+
+@media (max-width: 720px) {
+  .layout { flex-direction: column-reverse; }
+  .panel { width: 100%; max-height: 45vh; border-right: 0; border-top: 1px solid var(--border); }
+  .actions { grid-template-columns: 1fr 1fr; }
+  .actions #btn-add { grid-column: span 2; }
+}
